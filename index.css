@@ -1,0 +1,661 @@
+/*
+=============
+Variables 
+=============
+ */
+
+:root {
+  --background: #041549;
+  --clr-green: #60fcf1;
+  --clr-yellow: #ffff00;
+  --clr-white: #eeeeee;
+  --clr-pure-white: #ffffff;
+  --ff-primary: "roboto", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+}
+
+/*
+  ==============
+  Global Styles  
+  ==============
+   */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+  background-color: var(--background);
+  color: var(--clr-white);
+  line-height: 1.5;
+  font-size: 0.9375rem; /* 15px */
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-white);
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* 
+  ================
+  Reusable Sytles
+  ================
+   */
+
+.container {
+  width: 90vw;
+  margin: 6rem auto;
+  align-items: center;
+}
+
+.about-ctn {
+  margin-top: 0px;
+}
+
+.container:last-child {
+  margin-bottom: 0;
+}
+
+.section-heading {
+  text-align: left;
+  text-transform: uppercase;
+}
+.section-heading h1 {
+  font-size: 2rem;
+  color: var(--clr-white);
+  opacity: 0.3;
+  padding-bottom: 2rem;
+}
+
+.section-heading h1::before {
+  width: 10rem;
+  height: 0.2rem;
+  border-radius: 0.8rem;
+}
+.section-heading h1::after {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  bottom: -1rem;
+}
+
+.social-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+/*
+  ===============
+  Header styles
+  ===============
+  */
+header {
+  width: 90vw;
+  height: 100vh;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.top-nav {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: -100vh;
+  z-index: 50;
+  background-color: #041549;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+  transition: all 650ms cubic-bezier(1, 0, 0, 1);
+}
+
+.nav-list {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  margin: 1rem;
+}
+
+.nav-link {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  padding: 1rem;
+  color: #60fcf1;
+}
+.nav-link:hover,
+.nav-link:focus {
+  background: hsl(60, 100%, 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.top-nav.open {
+  top: 0;
+  border-radius: initial;
+  position: fixed;
+}
+
+.menu-toggler {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1500;
+  transition: transform 650ms ease-out;
+}
+
+.menu-toggler.open {
+  transform: rotate(-45deg);
+}
+.bar {
+  background: #60fcf1;
+  width: 100%;
+  height: 4px;
+  border-radius: 0.8rem;
+}
+
+.bar.half {
+  width: 50%;
+}
+
+.bar.start {
+  transform-origin: right;
+  transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+.open .bar.start {
+  transform: rotate(-450deg) translateX(0.8rem);
+}
+
+.bar.end {
+  align-self: flex-end;
+  transform-origin: left;
+  transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+.open .bar.end {
+  transform: rotate(-450deg) translateX(-0.8rem);
+}
+
+.landing-text {
+  padding: 150px 0px 20px 0px;
+}
+
+.landing-text h1,
+.project-title {
+  font-size: 2rem;
+  line-height: 1.5;
+  color: var(--clr-green);
+  cursor: context-menu;
+  letter-spacing: var(--spacing);
+}
+.landing-text span {
+  display: inline-block;
+}
+span:hover {
+  color: var(--clr-yellow);
+  transition: all 0.5s;
+}
+
+span.name {
+  color: var(--clr-yellow);
+}
+span.name:hover {
+  color: var(--clr-green);
+}
+span.m-left {
+  margin-left: -15px;
+}
+.landing-text p {
+  padding: 20px 0;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+}
+
+.landing-text a {
+  border: 2px solid var(--clr-green);
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-right: 5px;
+  padding: 12px 14px;
+  letter-spacing: 2px;
+  overflow: hidden;
+  transition: 0.5s;
+  display: inline-block;
+}
+
+/*
+  ==============
+  About Section
+  ==============
+  */
+
+.no-break {
+  white-space: nowrap;
+}
+
+.social-media i {
+  font-size: 3rem;
+  color: var(--clr-green);
+  transition: color 650ms;
+  padding-bottom: 2rem;
+}
+
+.social-media i:hover {
+  font-size: 3.5rem;
+}
+.about-text {
+  margin-bottom: 4rem;
+}
+
+/* 
+  =======
+  Skills
+  =======
+  */
+
+.tech-stack {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.tech-stack-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tech-stack .hidden {
+  display: none;
+  position: absolute;
+  font-size: 0.9rem;
+}
+
+.tech-stack-card:hover .hidden {
+  display: block;
+}
+
+.iconify {
+  font-size: 3.5rem;
+  margin: 20px;
+}
+
+.stack-card p {
+  font-size: 0.9rem;
+  font-weight: lighter;
+  text-align: center;
+}
+
+/* 
+  =========
+  Portfolio
+  =========
+  */
+.project {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  border-radius: 0.2rem;
+  margin-bottom: 6rem;
+  flex: 1;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 85%;
+  letter-spacing: 0.2rem;
+  text-align: left;
+}
+
+.project-stack {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.iconify-small {
+  font-size: 3rem;
+  margin: 0.5rem;
+}
+
+.stack-card p {
+  font-size: 0.7rem;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.project-links {
+  display: flex;
+  margin: 2rem 0;
+}
+
+.project-links a {
+  background-color: #60fcf1;
+  color: var(--background);
+  padding: 0.5rem;
+  border-radius: 3px;
+}
+.project-links a:first-child {
+  margin-right: 0.5rem;
+}
+
+.project-links a:hover {
+  background-color: var(--background);
+  color: var(--clr-pure-white);
+}
+
+.desktop-image {
+  border: 6px solid white;
+}
+
+.mobile-image {
+  height: 70%;
+  width: 40%;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 30px;
+  margin: 0 auto;
+}
+
+.ipad-image {
+  background-color: white;
+  border: 3px solid white;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+.ipad-image-vertical {
+  width: 65%;
+  height: 75%;
+}
+
+/* 
+  ======
+  Footer 
+  ======
+  */
+
+.footer {
+  width: 100%;
+  border-top: 0.15rem solid #4a567a;
+  text-align: center;
+  position: relative;
+}
+
+.footer-email p {
+  font-size: 1.2rem;
+  padding: 2rem 0 0 0;
+  font-weight: bold;
+}
+
+.up {
+  position: absolute;
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  background-color: #eee;
+  top: -2rem;
+  right: 2rem;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  cursor: pointer;
+}
+
+.up i {
+  color: #221e3f;
+  font-size: 1.5rem;
+  margin: auto;
+}
+
+/* 
+  ==========
+  Amimations 
+  ==========
+  */
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(95, 252, 241);
+  }
+  70% {
+    box-shadow: 0 0 0 2rem rgba(253, 87, 191, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(253, 87, 191, 0);
+  }
+}
+
+/* 
+  =============
+  Media Queries 
+  =============
+  */
+
+@media screen and (min-width: 600px) {
+  body {
+    font-size: 1rem; /* 16px */
+  }
+  .landing-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+  .section-heading {
+    text-align: right;
+  }
+
+  .section-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .heading-left {
+    text-align: left;
+  }
+
+  .about p {
+    font-size: 1.1rem;
+  }
+
+  .tech-stack {
+    text-align: justify;
+  }
+
+  .iconify-small {
+    font-size: 3.2rem;
+  }
+
+  .stack-card p {
+    font-size: 0.85rem;
+  }
+
+  .up {
+    width: 4rem;
+    height: 4rem;
+    top: -2.5rem;
+    right: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 1.0625rem; /* 17px */
+  }
+  .menu-toggler {
+    top: 4rem;
+    right: 4rem;
+    width: 4rem;
+    height: 3rem;
+  }
+
+  .landing-text {
+    padding: 200px 0px 20px 0px;
+  }
+
+  .landing-text p {
+    padding: 4rem 0;
+    font-size: 1.4rem;
+  }
+  .landing-text a {
+    font-size: 1.5rem;
+    padding: 14px 16px;
+  }
+
+  .section-heading h1 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .stack-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    font-size: 1.125rem; /* 18px */
+  }
+  .nav-list {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-link {
+    font-size: 3rem;
+  }
+
+  header {
+    width: 85vw;
+  }
+
+  .landing-text h1 {
+    font-size: 3.5rem;
+  }
+
+  .landing-text p {
+    padding: 2rem 0;
+    font-size: 1.2rem;
+  }
+
+  .landing-text a {
+    font-size: 1.2rem;
+    padding: 12px 14px;
+  }
+
+  .container {
+    width: 85vw;
+  }
+
+  .section-heading {
+    padding-top: 2rem;
+  }
+
+  .tech-stack .hidden {
+    font-size: 1rem;
+  }
+
+  .project {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 6rem;
+  }
+
+  .project-card,
+  .project-image {
+    flex: 1;
+    margin-right: 1.5rem;
+  }
+
+  .project-image {
+    align-self: center;
+  }
+
+  .mobile-image {
+    height: 450px;
+    width: 225px;
+  }
+
+  .project-reverse {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+  .project-title-reverse {
+    text-align: right;
+  }
+  .project-links-reverse,
+  .project-stack-reverse {
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .menu-toggler {
+    top: 3rem;
+    right: 4rem;
+    width: 4rem;
+    height: 3rem;
+  }
+
+  .landing-text {
+    padding: 8em 0em 0em 0em;
+  }
+
+  .landing-text h1 {
+    font-size: 3rem;
+    line-height: 1.4;
+    letter-spacing: 0.1rem;
+    color: #60fcf1;
+    cursor: context-menu;
+  }
+
+  .landing-text p {
+    padding-top: 3rem;
+    font-size: 1.3rem;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    letter-spacing: 0.05rem;
+  }
+
+  .iconify {
+    font-size: 4rem;
+    margin: 25px;
+  }
+
+  .iconify-small {
+    font-size: 3rem;
+    margin: 0.8rem;
+  }
+}
