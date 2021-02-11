@@ -33,7 +33,7 @@ body {
   background-color: var(--background);
   color: var(--clr-white);
   line-height: 1.5;
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem; /*15px */
   width: 100%;
   height: 100%;
 }
@@ -49,6 +49,7 @@ img {
 }
 
 p {
+  font-size: 1rem;
   margin-bottom: 1.5rem;
 }
 
@@ -62,10 +63,6 @@ p {
   width: 90vw;
   margin: 6rem auto;
   align-items: center;
-}
-
-.about-ctn {
-  margin-top: 0px;
 }
 
 .container:last-child {
@@ -106,11 +103,11 @@ p {
   Header styles
   ===============
   */
-header {
+.header {
   width: 90vw;
   height: 100vh;
+  position: relative;
   margin: 0 auto;
-  align-items: center;
 }
 
 .top-nav {
@@ -207,7 +204,11 @@ li {
 }
 
 .landing-text {
-  padding: 150px 0px 20px 0px;
+  position: absolute;
+  width: 85vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .landing-text h1,
@@ -217,6 +218,7 @@ li {
   color: var(--clr-green);
   cursor: context-menu;
   letter-spacing: var(--spacing);
+  display: inline-block;
 }
 .landing-text span {
   display: inline-block;
@@ -236,21 +238,20 @@ span.m-left {
   margin-left: -15px;
 }
 .landing-text p {
-  padding: 20px 0;
-  font-size: 1.1rem;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  font-size: 0.875rem;
   letter-spacing: 3px;
 }
 
 .landing-text a {
   border: 2px solid var(--clr-green);
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.875rem;
   margin-right: 5px;
   padding: 12px 14px;
   letter-spacing: 2px;
-  overflow: hidden;
   transition: 0.5s;
-  display: inline-block;
 }
 
 /*
@@ -259,6 +260,9 @@ span.m-left {
   ==============
   */
 
+.about-ctn {
+  margin-top: 1rem;
+}
 .no-break {
   white-space: nowrap;
 }
@@ -307,15 +311,9 @@ span.m-left {
 }
 
 .iconify {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin: 20px;
 }
-
-/* .stack-card p {
-  font-size: 0.9rem;
-  font-weight: lighter;
-  text-align: center;
-} */
 
 /* 
   =========
@@ -331,28 +329,19 @@ span.m-left {
   flex: 1;
 }
 
-.project-title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  line-height: 85%;
-  letter-spacing: 0.2rem;
-  text-align: left;
-}
-
 .project-stack {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  text-align: center;
 }
 
 .iconify-small {
   font-size: 3rem;
-  margin: 0.5rem;
+  text-align: center;
+  margin: 5rem;
 }
 
 .stack-card p {
-  font-size: 0.75rem;
   font-weight: lighter;
   text-align: center;
 }
@@ -378,21 +367,21 @@ span.m-left {
 }
 
 .desktop-image {
-  border: 6px solid white;
+  border: 6px solid var(--clr-pure-white);
 }
 
 .mobile-image {
   height: 70%;
   width: 40%;
-  background-color: white;
-  border: 2px solid white;
+  background-color: var(--clr-pure-white);
+  border: 2px solid var(--clr-pure-white);
   border-radius: 30px;
   margin: 0 auto;
 }
 
 .ipad-image {
-  background-color: white;
-  border: 3px solid white;
+  background-color: var(--clr-pure-white);
+  border: 3px solid var(--clr-pure-white);
   border-radius: 25px;
   margin: 0 auto;
 }
@@ -470,6 +459,7 @@ span.m-left {
   .landing-text h1 {
     font-size: 3rem;
     line-height: 1.2;
+    margin-bottom: 2rem;
   }
   .section-heading {
     text-align: right;
@@ -484,7 +474,7 @@ span.m-left {
   }
 
   .about p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .tech-stack {
@@ -518,22 +508,21 @@ span.m-left {
     height: 3rem;
   }
 
-  .landing-text {
-    padding: 200px 0px 20px 0px;
-  }
-
   .landing-text p {
-    padding: 4rem 0;
     font-size: 1.4rem;
   }
   .landing-text a {
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 14px 16px;
   }
 
   .section-heading h1 {
     font-size: 3.5rem;
     margin-bottom: 2rem;
+  }
+
+  .about-ctn {
+    margin-top: 0px;
   }
 }
 
@@ -547,7 +536,7 @@ span.m-left {
     font-size: 3rem;
   }
 
-  header {
+  .header {
     width: 85vw;
   }
 
@@ -556,13 +545,11 @@ span.m-left {
   }
 
   .landing-text p {
-    padding: 2rem 0;
     font-size: 1.2rem;
   }
 
   .landing-text a {
-    font-size: 1.2rem;
-    padding: 12px 14px;
+    padding: 10px 12px;
   }
 
   .container {
@@ -621,7 +608,8 @@ span.m-left {
   }
 
   .landing-text {
-    padding: 8em 0em 0em 0em;
+    position: absolute;
+    width: 80vw;
   }
 
   .landing-text h1 {
@@ -633,22 +621,56 @@ span.m-left {
   }
 
   .landing-text p {
-    padding-top: 3rem;
     font-size: 1.3rem;
   }
 
   .about-text p {
-    font-size: 1.1rem;
     letter-spacing: 0.05rem;
   }
 
   .iconify {
     font-size: 4rem;
-    margin: 25px;
+    margin-right: 25px;
   }
+
+  /* .project-card p {
+    font-size: 1rem;
+  } */
 
   .iconify-small {
     font-size: 3rem;
     margin: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .landing-text h1 {
+    font-size: 4rem;
+  }
+  .landing-text a {
+    padding: 14px 16px;
+  }
+
+  .container {
+    width: 80vw;
+  }
+  .iconify {
+    font-size: 4rem;
+    margin: 55px;
+  }
+  .project-title {
+    font-size: 2.8rem;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+
+  .iconify.iconify-small {
+    font-size: 3rem;
+    margin: 1.5rem;
+  }
+
+  .stack-card p {
+    font-size: 0.9rem;
   }
 }
