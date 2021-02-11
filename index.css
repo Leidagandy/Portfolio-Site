@@ -654,6 +654,10 @@ span.m-left {
   .container {
     width: 80vw;
   }
+
+  .about-text p {
+    font-size: 1.2rem;
+  }
   .iconify {
     font-size: 4rem;
     margin: 55px;
