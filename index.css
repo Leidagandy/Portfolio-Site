@@ -159,8 +159,8 @@ li {
 
 .menu-toggler {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 5rem;
+  right: 3rem;
   width: 3rem;
   height: 3rem;
   display: flex;
@@ -602,7 +602,7 @@ span.m-left {
 @media screen and (min-width: 1200px) {
   .menu-toggler {
     top: 3rem;
-    right: 4rem;
+    right: 0rem;
     width: 4rem;
     height: 3rem;
   }
